@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primaryColor: '#23BE0A',
+      },
       keyframes: {
         animatedgradient: {
           '0%': { backgroundPosition: '0% 50%' },
@@ -24,5 +27,6 @@ export default {
   plugins: [require("daisyui")],
   daisyui: {
     themes: ["light"]
-  }
+  },
+
 }

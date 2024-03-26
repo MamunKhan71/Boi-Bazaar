@@ -1,7 +1,9 @@
+import Hero from "../Components/Hero.jsx";
+
 const Home = () => {
     return (
         <div>
-            <h1>Hell</h1>
+            <Hero></Hero>
         </div>
     );
 };
