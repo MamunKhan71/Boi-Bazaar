@@ -2,6 +2,7 @@ import {useLoaderData, useParams} from "react-router-dom";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import {useEffect, useState} from "react";
+import {toast} from "react-toastify";
 
 const BookDetails = () => {
     const [getLocalBook, setLocalBookRead] = useState([])
@@ -9,7 +10,12 @@ const BookDetails = () => {
         if(localStorage.getItem('read')){
             const items = localStorage.getItem('read')
             const newItems = JSON.parse(items)
-            localStorage.setItem('read', JSON.stringify([...newItems, book]))
+            if(newItems.includes(book)){
+                toast.error("Already in reading list!")
+            }else{
+                localStorage.setItem('read', JSON.stringify([...newItems, book]))
+                toast.success("Added to reading list!")
+            }
         }else{
             localStorage.setItem('read', JSON.stringify([book]))
         }
