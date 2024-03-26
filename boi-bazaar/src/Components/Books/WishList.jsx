@@ -24,8 +24,8 @@ const WishList = () => {
                 filteredBooks.map(book=> (
                     <>
                         <div className="flex gap-6 border rounded-2xl p-6">
-                            <div className="">
-                                <img className="max-h-72 bg-[#1313130d] rounded-2xl p-6" src={book.image}
+                            <div className="flex items-center justify-center w-72 h-72 bg-[#1313130d] p-6 rounded-2xl">
+                                <img  src={book.image}
                                      alt="book-img"/>
                             </div>
                             <div className="w-full h-full space-y-4">
