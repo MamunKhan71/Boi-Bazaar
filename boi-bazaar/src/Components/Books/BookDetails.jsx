@@ -1,8 +1,28 @@
 import {useLoaderData, useParams} from "react-router-dom";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import {useEffect, useState} from "react";
 
 const BookDetails = () => {
+    const [getLocalBook, setLocalBookRead] = useState([])
+    const handleLocalBookRead = (book) => {
+        if(localStorage.getItem('read')){
+            const items = localStorage.getItem('read')
+            const newItems = JSON.parse(items)
+            localStorage.setItem('read', JSON.stringify([...newItems, book]))
+        }else{
+            localStorage.setItem('read', JSON.stringify([book]))
+        }
+    }
+    const handleLocalWishlists = (book) => {
+        if(localStorage.getItem('wishlist')){
+            const items = localStorage.getItem('wishlist')
+            const newItems = JSON.parse(items)
+            localStorage.setItem('wishlist', JSON.stringify([...newItems, book]))
+        }else{
+            localStorage.setItem('wishlist', JSON.stringify([book]))
+        }
+    }
     const id = useParams().id;
     const books = useLoaderData();
     const {
@@ -57,8 +77,8 @@ const BookDetails = () => {
                     </div>
                 </div>
                 <div className="flex gap-4">
-                    <button className="btn font-semibold px-7 border border-[#1313134d] bg-transparent text-black text-lg workSans">Read</button>
-                    <button className="btn bg-[#50B1C9] font-semibold text-white px-7 text-lg ">Wishlist</button>
+                    <button onClick={() => handleLocalBookRead(bookId)} className="btn font-semibold px-7 border border-[#1313134d] bg-transparent text-black text-lg workSans">Read</button>
+                    <button onClick={()=> handleLocalWishlists(bookId)} className="btn bg-[#50B1C9] font-semibold text-white px-7 text-lg ">Wishlist</button>
                 </div>
             </div>
         </div>
