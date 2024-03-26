@@ -1,0 +1,93 @@
+[
+  {
+    "bookId": 1,
+    "bookName": "Rich Dad and Poor Dad",
+    "author": "Robert T. Kiyosaki",
+    "image": "images/rich-dad.png",
+    "review": "Rich Dad Poor Dad is a book that can change your perception about money and wealth. It emphasizes the importance of financial education and how it can lead to financial independence.",
+    "totalPages": 336,
+    "rating": 4.1,
+    "category": "Personal Finance",
+    "tags": ["Finance", "Investment"],
+    "publisher": "Plata Publishing",
+    "yearOfPublishing": 1997
+  },
+  {
+    "bookId": 2,
+    "bookName": "Push Back",
+    "author": "R.E. McDermott",
+    "image": "images/push-back.png",
+    "review": "Push Back is a thrilling novel that keeps you on the edge of your seat from start to finish. With its engaging plot and well-developed characters, it's a must-read for fans of action and suspense.",
+    "totalPages": 340,
+    "rating": 4.3,
+    "category": "Fiction",
+    "tags": ["Thriller", "Action"],
+    "publisher": "CreateSpace Independent Publishing Platform",
+    "yearOfPublishing": 2013
+  },
+  {
+    "bookId": 3,
+    "bookName": "The Law of Action",
+    "author": "Rob Actis",
+    "image": "images/the-law-of-action.png",
+    "review": "The Law of Action offers practical insights and strategies for achieving success in both personal and professional life. Rob Actis provides actionable advice backed by real-world examples, making it an invaluable resource for anyone looking to make positive changes.",
+    "totalPages": 240,
+    "rating": 4.5,
+    "category": "Self-Help",
+    "tags": ["Motivation", "Success"],
+    "publisher": "Self-Published",
+    "yearOfPublishing": 2020
+  },
+  {
+    "bookId": 4,
+    "bookName": "Smarter Next Year",
+    "author": "David Bardsley",
+    "image": "images/smarter-next.png",
+    "review": "Smarter Next Year is a comprehensive guide to improving cognitive function and overall brain health. David Bardsley presents practical tips and exercises that anyone can incorporate into their daily routine to enhance mental acuity and vitality.",
+    "totalPages": 272,
+    "rating": 4.0,
+    "category": "Health & Wellness",
+    "tags": ["Brain Health", "Productivity"],
+    "publisher": "HarperOne",
+    "yearOfPublishing": 2010
+  },
+  {
+    "bookId": 5,
+    "bookName": "Running Away and Finding Home",
+    "author": "Judge Tommy Webb",
+    "image": "images/finding-home.png",
+    "review": "Running Away and Finding Home is a poignant memoir that chronicles Judge Tommy Webb's journey from a troubled childhood to becoming a respected member of the legal community. His story is both inspiring and thought-provoking, offering insights into resilience, forgiveness, and the search for belonging.",
+    "totalPages": 224,
+    "rating": 4.6,
+    "category": "Memoir",
+    "tags": ["Inspiration", "Family"],
+    "publisher": "Post Hill Press",
+    "yearOfPublishing": 2018
+  },
+  {
+    "bookId": 6,
+    "bookName": "Manifest Money in 24 Hours",
+    "author": "Vionq Haven",
+    "image": "images/manifest.png",
+    "review": "Manifest Money in 24 Hours provides a practical approach to attracting abundance into your life. Vionq Haven offers actionable steps and exercises that can help shift your mindset and manifest financial prosperity in a short period of time.",
+    "totalPages": 128,
+    "rating": 4.2,
+    "category": "Personal Development",
+    "tags": ["Manifestation", "Abundance"],
+    "publisher": "Self-Published",
+    "yearOfPublishing": 2022
+  },
+  {
+    "bookId": 7,
+    "bookName": "Ideas, Influence, and Income",
+    "author": "Tanya Hall",
+    "image": "images/ideas-influence.png",
+    "review": "Ideas, Influence, and Income is a comprehensive guide to building a successful career as an influencer. Tanya Hall shares practical strategies for developing a personal brand, creating compelling content, and monetizing your influence in today's digital landscape.",
+    "totalPages": 272,
+    "rating": 4.4,
+    "category": "Business",
+    "tags": ["Influence", "Marketing"],
+    "publisher": "Entrepreneur Press",
+    "yearOfPublishing": 2018
+  }
+]
