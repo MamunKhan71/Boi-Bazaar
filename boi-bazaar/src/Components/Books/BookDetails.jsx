@@ -30,7 +30,7 @@ const BookDetails = () => {
                 <hr/>
                 <p>{category}</p>
                 <hr/>
-                <p><Markdown rehypePlugins={[rehypeRaw]}
+                <p> <Markdown rehypePlugins={[rehypeRaw]}
                                                       className="text-justify">{review}</Markdown></p>
                 <div className="flex gap-3 workSans items-center">
                     <h1 className="font-bold workSans text-[#131313]">Tags</h1>

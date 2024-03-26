@@ -3,7 +3,7 @@ import {Outlet} from "react-router-dom";
 
 const MainContainer = () => {
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto mb-24">
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>
