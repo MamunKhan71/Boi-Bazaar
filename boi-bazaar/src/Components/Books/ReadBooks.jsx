@@ -1,9 +1,11 @@
 import {useEffect, useState} from "react";
-import {useLoaderData} from "react-router-dom";
+import {useLoaderData, useParams} from "react-router-dom";
 import {toast} from "react-toastify";
 
 const ReadBooks = () => {
     const [getReadBooks, setReadBooks] = useState([])
+    const [filter, setFilter] = useState(useParams())
+    console.log(filter)
     const getBooks = useLoaderData()
     const filteredBooks = getBooks.filter(book => getReadBooks.includes(book.bookId))
     useEffect(() => {

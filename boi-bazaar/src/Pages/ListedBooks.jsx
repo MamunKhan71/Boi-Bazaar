@@ -3,6 +3,11 @@ import {useState} from "react";
 
 const ListedBooks = () => {
     const [tabIndex, setTabIndex] = useState(0)
+    const [filter, setFilter] = useState('default')
+
+    const handleFilter = filter => {
+        setFilter(filter)
+    }
     const handleTabChange = (index) => {
         setTabIndex(index)
     }
@@ -21,19 +26,19 @@ const ListedBooks = () => {
                               strokeLinejoin="round"/>
                     </svg></summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                        <li><a className="text-lg font-semibold">Rating</a></li>
-                        <li><a className="text-lg font-semibold">Number of pages</a></li>
-                        <li><a className="text-lg font-semibold">Published year</a></li>
+                        <li><a  onClick={()=>handleFilter('rating')} className="text-lg font-semibold">Rating</a></li>
+                        <li><a  onClick={()=>handleFilter('page')} className="text-lg font-semibold">Number of pages</a></li>
+                        <li><a  onClick={()=>handleFilter('year')} className="text-lg font-semibold">Published year</a></li>
                     </ul>
                 </details>
             </div>
             <div
                 className="flex items-start sm:justify-start">
-                <Link to="read-books" onClick={() => handleTabChange(0)}
+                <Link to={`read-books/${filter}`} onClick={() => handleTabChange(0)}
                    className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 0?'border border-b-0':'border-b'} rounded-t-lg border-gray-400 `}>
                     <span>Read Books</span>
                 </Link>
-                <Link to="wish-list" onClick={() => handleTabChange(1)}
+                <Link to={`wish-list/${filter}`} onClick={() => handleTabChange(1)}
                    className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${tabIndex === 1?'border border-b-0':'border-b'} rounded-t-lg border-gray-400`}>
                     <span>Wishlist Books</span>
                 </Link>
