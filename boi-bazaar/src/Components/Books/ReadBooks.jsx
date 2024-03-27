@@ -13,7 +13,8 @@ const ReadBooks = () => {
             if(localWishlist && localRead){
                 if(JSON.parse(localRead).includes(JSON.parse(localWishlist))) {
                     toast.warning("Already Completed Reading the book!")
-                }else{
+                }
+                else{
                     if(localRead){
                         const readingList = JSON.parse(localRead)
                         setReadBooks(readingList)
@@ -21,13 +22,13 @@ const ReadBooks = () => {
                         setReadBooks([])
                     }
                 }
-
             }
 
         }catch (e) {
             console.log(e)
         }
     }, []);
+
     return (
         <div className="grid grid-cols-1 gap-6">
             {

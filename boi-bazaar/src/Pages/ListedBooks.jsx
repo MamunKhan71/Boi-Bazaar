@@ -6,6 +6,7 @@ const ListedBooks = () => {
     const handleTabChange = (index) => {
         setTabIndex(index)
     }
+
     return (
         <div className="space-y-12">
             <div className="w-full bg-[#1313130d] py-8 text-center rounded-2xl text-[#131313] text-3xl font-bold workSans">

@@ -5,17 +5,15 @@ import {useEffect, useState} from "react";
 import {toast} from "react-toastify";
 
 const BookDetails = () => {
-    const [getLocalBook, setLocalBookRead] = useState([])
-    const [getWishBook, setWishBookRead] = useState([])
     const handleLocalBookRead = (book) => {
         if(localStorage.getItem('read')){
             const items = localStorage.getItem('read')
             const newItems = JSON.parse(items)
             if(newItems.includes(book)){
                 toast.error("Already in reading list!")
-            }else{
+            }
+            else{
                 localStorage.setItem('read', JSON.stringify([...newItems, book]))
-                setLocalBookRead(JSON.parse(localStorage.getItem('read')))
                 toast.success("Added to reading list!")
             }
         }else{
