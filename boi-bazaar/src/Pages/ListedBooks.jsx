@@ -20,8 +20,9 @@ const ListedBooks = () => {
                               strokeLinejoin="round"/>
                     </svg></summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                        <li><a className="text-lg font-semibold">Read</a></li>
-                        <li><a className="text-lg font-semibold">Wishlist</a></li>
+                        <li><a className="text-lg font-semibold">Rating</a></li>
+                        <li><a className="text-lg font-semibold">Number of pages</a></li>
+                        <li><a className="text-lg font-semibold">Published year</a></li>
                     </ul>
                 </details>
             </div>

@@ -6,6 +6,7 @@ import {toast} from "react-toastify";
 
 const BookDetails = () => {
     const [getLocalBook, setLocalBookRead] = useState([])
+    const [getWishBook, setWishBookRead] = useState([])
     const handleLocalBookRead = (book) => {
         if(localStorage.getItem('read')){
             const items = localStorage.getItem('read')
@@ -14,6 +15,7 @@ const BookDetails = () => {
                 toast.error("Already in reading list!")
             }else{
                 localStorage.setItem('read', JSON.stringify([...newItems, book]))
+                setLocalBookRead(JSON.parse(localStorage.getItem('read')))
                 toast.success("Added to reading list!")
             }
         }else{
@@ -21,18 +23,23 @@ const BookDetails = () => {
         }
     }
     const handleLocalWishlists = (book) => {
-        if(localStorage.getItem('wishlist')){
-            const items = localStorage.getItem('wishlist')
-            const newItems = JSON.parse(items)
-            if(newItems.includes(book)){
-                toast.error("Already in wish list!")
-            }else{
-                localStorage.setItem('wishlist', JSON.stringify([...newItems, book]))
-                toast.success("Added to wish list!")
-            }
+        if(JSON.parse(localStorage.getItem('read')).includes(book)){
+            toast.error("Book already done reading!")
         }else{
-            localStorage.setItem('wishlist', JSON.stringify([book]))
+            if(localStorage.getItem('wishlist')){
+                const items = localStorage.getItem('wishlist')
+                const newItems = JSON.parse(items)
+                if(newItems.includes(book)){
+                    toast.error("Already in wish list!")
+                }else{
+                    localStorage.setItem('wishlist', JSON.stringify([...newItems, book]))
+                    toast.success("Added to wish list!")
+                }
+            }else{
+                localStorage.setItem('wishlist', JSON.stringify([book]))
+            }
         }
+
     }
     const id = useParams().id;
     const books = useLoaderData();

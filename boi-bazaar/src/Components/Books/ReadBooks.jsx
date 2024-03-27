@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useLoaderData} from "react-router-dom";
+import {toast} from "react-toastify";
 
 const ReadBooks = () => {
     const [getReadBooks, setReadBooks] = useState([])
@@ -8,12 +9,21 @@ const ReadBooks = () => {
     useEffect(() => {
         try{
             const localRead = localStorage.getItem('read')
-            if(localRead){
-                const readingList = JSON.parse(localRead)
-                setReadBooks(readingList)
-            }else{
-                setReadBooks([])
+            const localWishlist = localStorage.getItem('wishlist')
+            if(localWishlist && localRead){
+                if(JSON.parse(localRead).includes(JSON.parse(localWishlist))) {
+                    toast.warning("Already Completed Reading the book!")
+                }else{
+                    if(localRead){
+                        const readingList = JSON.parse(localRead)
+                        setReadBooks(readingList)
+                    }else{
+                        setReadBooks([])
+                    }
+                }
+
             }
+
         }catch (e) {
             console.log(e)
         }
