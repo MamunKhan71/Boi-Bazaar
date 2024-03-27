@@ -1,4 +1,4 @@
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import {useState, useEffect} from "react";
 import {useLoaderData} from "react-router-dom";
 
@@ -23,21 +23,24 @@ const TriangleBar = (props) => {
 const PagesToRead = () => {
     const loaderData = useLoaderData();
     const localBooks = JSON.parse(localStorage.getItem('read'))
-    const [getBooks, setBooks] = useState([]);
     const [getWidth, setWidth] = useState(0);
-    const [CommonBooks, setCommonBooks] = useState([]);
+    const [commonBooks, setCommonBooks] = useState([]);
     useEffect(() => {
         const commonBooks = loaderData.filter(book => localBooks.includes(book.bookId))
         setCommonBooks(commonBooks)
-        CommonBooks.map(book => {
-            data.push({
-                name: book.bookName,
-                uv: book.totalPages,
-                pv: 2400,
-                amt: 2400,
-            })
-        })
     }, []);
+
+    const data = []
+    commonBooks.map(book => {
+        const newBook = {
+            name: book.bookName,
+            Pages: book.totalPages,
+            pv: 2400,
+            amt: 2400,
+        }
+        data.push(newBook)
+    })
+
 
 
     useEffect(() => {
@@ -60,8 +63,9 @@ const PagesToRead = () => {
         >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis />
-            <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+            <YAxis dataKey="Pages" />
+            <Tooltip />
+            <Bar dataKey="Pages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
                 {data.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={colors[index % 20]} />
                 ))}
