@@ -8,7 +8,12 @@ const ListedBooks = () => {
     const getBooks = useLoaderData()
     const [tabChange, setTabChange] = useState(0)
     const [getReadBooks, setReadBooks] = useState([])
+    const [getWishBooks, setWishBooks] = useState([])
     const [filteredReadBooks, setFilteredReadBooks] = useState([])
+    const [filteredWishedBooks, setFilteredWishBooks] = useState([])
+    useEffect(() => {
+        setFilteredWishBooks(getBooks.filter(book => getWishBooks.includes(book.bookId) && !getReadBooks.includes(book.bookId)))
+    }, [getWishBooks]);
     useEffect(() => {
         setFilteredReadBooks(getBooks.filter(book => getReadBooks.includes(book.bookId)))
     }, [getReadBooks]);
@@ -35,7 +40,6 @@ const ListedBooks = () => {
         }
     }, []);
 
-    const [getWishBooks, setWishBooks] = useState([])
 
     useEffect(() => {
         try{
@@ -52,15 +56,24 @@ const ListedBooks = () => {
     }, []);
 
     const handleFilter = (filterType) => {
-        if(filterType === 'rating'){
-            setFilteredReadBooks((filteredReadBooks.toSorted((a,b) => a.rating - b.rating)).reverse())
-        }else if(filterType === 'pages'){
-            setFilteredReadBooks((filteredReadBooks.toSorted((a,b) => a.totalPages - b.totalPages)).reverse())
-        }else if(filterType === 'year'){
-            setFilteredReadBooks((filteredReadBooks.toSorted((a,b) => a.yearOfPublishing - b.yearOfPublishing)).reverse())
+        if(tabChange === 0){
+            if(filterType === 'rating'){
+                setFilteredReadBooks((filteredReadBooks.toSorted((a,b) => a.rating - b.rating)).reverse())
+            }else if(filterType === 'pages'){
+                setFilteredReadBooks((filteredReadBooks.toSorted((a,b) => a.totalPages - b.totalPages)).reverse())
+            }else if(filterType === 'year'){
+                setFilteredReadBooks((filteredReadBooks.toSorted((a,b) => a.yearOfPublishing - b.yearOfPublishing)).reverse())
+            }
+        }else if(tabChange === 1){
+            if(filterType === 'rating'){
+                setFilteredWishBooks((filteredWishedBooks.toSorted((a,b) => a.rating - b.rating)).reverse())
+            }else if(filterType === 'pages'){
+                setFilteredWishBooks((filteredWishedBooks.toSorted((a,b) => a.totalPages - b.totalPages)).reverse())
+            }else if(filterType === 'year'){
+                setFilteredWishBooks((filteredWishedBooks.toSorted((a,b) => a.yearOfPublishing - b.yearOfPublishing)).reverse())
+            }
         }
     }
-    const filteredWishBooks = getBooks.filter(book => getWishBooks.includes(book.bookId) && !getReadBooks.includes(book.bookId));
     return (
         <>
             <div className="space-y-6">
@@ -183,7 +196,7 @@ const ListedBooks = () => {
                     <>
                         <div className="grid grid-cols-1 gap-6">
                             {
-                                filteredWishBooks.map(book => (
+                                filteredWishedBooks.map(book => (
                                     <>
                                         <div className="flex gap-6 border rounded-2xl p-6">
                                             <div
