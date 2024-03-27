@@ -5,8 +5,8 @@ import MainContainer from "../Components/MainContainer.jsx";
 import ListedBooks from "../Pages/ListedBooks.jsx";
 import PagesToRead from "../Pages/PagesToRead.jsx";
 import BookDetails from "../Components/Books/BookDetails.jsx";
-import ReadBooks from "../Components/Books/ReadBooks.jsx";
-import WishList from "../Components/Books/WishList.jsx";
+// import ReadBooks from "../Components/Books/ReadBooks.jsx";
+// import WishList from "../Components/Books/WishList.jsx";
 import ErrorPage from "../Pages/ErrorPage.jsx";
 export const router = createBrowserRouter([
     {
@@ -20,19 +20,20 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/listed-books",
+                loader: () => fetch('/book_data.json'),
                 element: <ListedBooks />,
-                children: [
-                    {
-                        path: 'read-books/:filterId',
-                        loader: () => fetch('/book_data.json'),
-                        element: <ReadBooks></ReadBooks>,
-                    },
-                    {
-                        path: 'wish-list/:filterId',
-                        loader: () => fetch('/book_data.json'),
-                        element: <WishList></WishList>,
-                    }
-                ]
+                // children: [
+                //     {
+                //         path: 'read-books',
+                //         loader: () => fetch('/book_data.json'),
+                //         element: <ReadBooks></ReadBooks>,
+                //     },
+                //     {
+                //         path: 'wish-list',
+                //         loader: () => fetch('/book_data.json'),
+                //         element: <WishList></WishList>,
+                //     }
+                // ]
             },
             {
                 path: "/pages-to-read",
