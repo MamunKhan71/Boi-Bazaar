@@ -18,6 +18,7 @@ const BookDetails = () => {
             }
         }else{
             localStorage.setItem('read', JSON.stringify([book]))
+            toast.success("Added to reading list!")
         }
     }
     const handleLocalWishlists = (book) => {
