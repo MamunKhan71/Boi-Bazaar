@@ -18,25 +18,19 @@ const ListedBooks = () => {
         setFilteredReadBooks(getBooks.filter(book => getReadBooks.includes(book.bookId)))
     }, [getReadBooks]);
     useEffect(() => {
-        try{
-            const localRead = localStorage.getItem('read')
-            const localWishlist = localStorage.getItem('wishlist')
-            if(localWishlist && localRead){
-                if(JSON.parse(localRead).includes(JSON.parse(localWishlist))) {
-                    toast.warning("Already Completed Reading the book!")
-                }
-                else{
-                    if(localRead){
-                        const readingList = JSON.parse(localRead)
-                        setReadBooks(readingList)
-                    }else{
-                        setReadBooks([])
-                    }
-                }
+        const localRead = localStorage.getItem('read')
+        const localWishlist = localStorage.getItem('wishlist')
+        if(localWishlist && localRead){
+            if(JSON.parse(localRead).includes(JSON.parse(localWishlist))) {
+                toast.warning("Already Completed Reading the book!")
             }
-
-        }catch (e) {
-            console.log(e)
+            else{
+                const readingList = JSON.parse(localRead)
+                setReadBooks(readingList)
+            }
+        }else if(localRead){
+            const readingList = JSON.parse(localRead)
+            setReadBooks(readingList)
         }
     }, []);
 
@@ -74,6 +68,7 @@ const ListedBooks = () => {
             }
         }
     }
+    console.log(filteredReadBooks)
     return (
         <>
             <div className="space-y-6">
@@ -83,7 +78,7 @@ const ListedBooks = () => {
                         <h1>Books</h1>
                     </div>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center py-8">
                     <details className="dropdown">
                         <summary className="m-1 btn bg-primaryColor font-semibold text-white text-lg px-5">Sort By
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -105,22 +100,22 @@ const ListedBooks = () => {
                     <Tab>Read Books</Tab>
                     <Tab>Wishlist Books</Tab>
                 </TabList>
-                <TabPanel className="mt-8">
+                <TabPanel className="mt-4 lg:mt-8">
                     <>
                         <div className="grid grid-cols-1 gap-6">
                             {
                                 filteredReadBooks.map(book => (
                                     <>
-                                        <div className="flex gap-6 border rounded-2xl p-6">
+                                        <div className="flex flex-col lg:flex-row gap-6 border rounded-2xl p-6">
                                             <div
-                                                className="flex items-center justify-center w-72 h-72 bg-[#1313130d] p-6 rounded-2xl">
+                                                className="flex items-center justify-center w-full lg:w-72 h-full lg:h-72 bg-[#1313130d] p-6 rounded-2xl">
                                                 <img src={book.image}
                                                      alt="book-img"/>
                                             </div>
                                             <div className="w-full h-full space-y-4">
                                                 <h1 className="text-4xl font-bold text-p[#131313] playFair">{book.bookName}</h1>
                                                 <p className="workSans text-xl font-medium text-[#131313cc]">By: {book.author}</p>
-                                                <div className="flex gap-3 workSans items-center">
+                                                <div className="flex flex-wrap gap-3 workSans items-center">
                                                     <h1 className="font-bold workSans text-[#131313]">Tags</h1>
                                                     {
                                                         book.tags.map((tag) => (
@@ -169,7 +164,7 @@ const ListedBooks = () => {
                                                     </div>
                                                 </div>
                                                 <hr/>
-                                                <div className="flex gap-4">
+                                                <div className="flex flex-wrap justify-center lg:justify-start items-center lg:items-start gap-4">
                                                     <button
                                                         className="text-lg btn rounded-full bg-[#328eff26] text-[#328EFF]">Category:
                                                         {` ${book.category}`}
@@ -178,10 +173,10 @@ const ListedBooks = () => {
                                                         className="text-lg btn rounded-full bg-[#ffac3326] text-primaryColor">Rating:
                                                         {` ${book.rating}`}
                                                     </button>
-                                                    <button
+                                                    <Link to={`/books/${book.bookId}`}
                                                         className="text-lg btn rounded-full bg-primaryColor text-white font-semibold">View
                                                         Details
-                                                    </button>
+                                                    </Link>
                                                 </div>
 
                                             </div>
@@ -198,16 +193,16 @@ const ListedBooks = () => {
                             {
                                 filteredWishedBooks.map(book => (
                                     <>
-                                        <div className="flex gap-6 border rounded-2xl p-6">
+                                        <div className="flex flex-col lg:flex-row gap-6 border rounded-2xl p-6">
                                             <div
-                                                className="flex items-center justify-center w-72 h-72 bg-[#1313130d] p-6 rounded-2xl">
+                                                className="flex items-center justify-center w-full lg:w-72 h-full lg:h-72 bg-[#1313130d] p-6 rounded-2xl">
                                                 <img src={book.image}
                                                      alt="book-img"/>
                                             </div>
                                             <div className="w-full h-full space-y-4">
                                                 <h1 className="text-4xl font-bold text-p[#131313] playFair">{book.bookName}</h1>
                                                 <p className="workSans text-xl font-medium text-[#131313cc]">By: {book.author}</p>
-                                                <div className="flex gap-3 workSans items-center">
+                                                <div className="flex flex-wrap gap-3 workSans items-center">
                                                     <h1 className="font-bold workSans text-[#131313]">Tags</h1>
                                                     {
                                                         book.tags.map((tag) => (
@@ -256,7 +251,7 @@ const ListedBooks = () => {
                                                     </div>
                                                 </div>
                                                 <hr/>
-                                                <div className="flex gap-4">
+                                                <div className="flex flex-wrap justify-center lg:justify-start items-center lg:items-start gap-4">
                                                     <button
                                                         className="text-lg btn rounded-full bg-[#328eff26] text-[#328EFF]">Category:
                                                         {` ${book.category}`}
@@ -265,10 +260,10 @@ const ListedBooks = () => {
                                                         className="text-lg btn rounded-full bg-[#ffac3326] text-primaryColor">Rating:
                                                         {` ${book.rating}`}
                                                     </button>
-                                                    <button
-                                                        className="text-lg btn rounded-full bg-primaryColor text-white font-semibold">View
+                                                    <Link to={`/books/${book.bookId}`}
+                                                          className="text-lg btn rounded-full bg-primaryColor text-white font-semibold">View
                                                         Details
-                                                    </button>
+                                                    </Link>
                                                 </div>
 
                                             </div>

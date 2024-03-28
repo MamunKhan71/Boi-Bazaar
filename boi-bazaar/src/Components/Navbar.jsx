@@ -50,8 +50,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-4 hidden lg:flex">
-                <button className="btn bg-[#23BE0A] rounded-full lg:rounded-xl font-semibold text-white lg:px-7 text-base lg:text-lg ">Sign In</button>
-                <button className="btn bg-[#59C6D2] rounded-full lg:rounded-xl font-semibold text-white lg:px-7 text-base lg:text-lg ">Sign Up</button>
+                <NavLink to="/sign-in" className="btn bg-[#23BE0A] rounded-full lg:rounded-xl font-semibold text-white lg:px-7 text-base lg:text-lg ">Sign In</NavLink>
+                <NavLink to="/sign-up" className="btn bg-[#59C6D2] rounded-full lg:rounded-xl font-semibold text-white lg:px-7 text-base lg:text-lg ">Sign Up</NavLink>
             </div>
         </div>
     );

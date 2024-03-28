@@ -57,7 +57,7 @@ const PagesToRead = () => {
     }, []);
 
     return (
-        <BarChart className="bg-[#13131308] py-24 rounded-2xl"
+        <BarChart className="bg-[#13131308] py-6 lg:py-24 rounded-2xl"
             width={getWidth}
             height={624}
             data={data}

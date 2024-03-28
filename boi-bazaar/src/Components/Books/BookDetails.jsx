@@ -55,10 +55,10 @@ const BookDetails = () => {
         tags,
     } = books.find(book=> book.bookId === parseInt(id));
     return (
-        <div className="flex gap-12 w-full">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 w-full">
             <div className="flex flex-1 bg-[#1313130d] rounded-2xl p-16 items-center justify-center w-full">
                 <img src={image} alt="Book Image"
-                     className="h-[564px] rounded-2xl"/>
+                     className="h-full lg:h-[564px] rounded-2xl"/>
             </div>
             <div className="flex-1 space-y-4">
                 <h1 className="text-4xl font-bold text-p[#131313] playFair">{bookName}</h1>
