@@ -24,6 +24,14 @@ Boi-Bazaar is an online marketplace for book enthusiasts, offering a seamless br
 
 10. **Custom Shape Bar Chart**: Explore your reading progress with our Pages to Read page, featuring a custom shape bar chart. Visualize the total pages of books against their names, providing insights into your reading journey.
 
+## Characteristics:
+
+- **User-Friendly Interface**: Boi-Bazaar offers an intuitive interface that makes browsing and shopping for books a delightful experience.
+- **Extensive Book Collection**: With a vast array of books categorized into various genres and topics, users can easily find their desired titles.
+- **Interactive Book Details**: Detailed book pages provide users with comprehensive information about each book, aiding in informed decision-making.
+- **Seamless Navigation**: Whether on desktop or mobile devices, users can effortlessly navigate through the website, enhancing usability.
+- **Engaging Visuals**: The website's design incorporates visually appealing elements that captivate users and enhance their browsing experience.
+
 ## Technology Stack:
 
 - HTML
@@ -31,14 +39,15 @@ Boi-Bazaar is an online marketplace for book enthusiasts, offering a seamless br
 - Tailwind CSS
 - JavaScript
 - React
-
+  
+## Visit Boi-Bazaar:
+1. **Netlify Live Link:** [Click Here](https://boi-bazaar.netlify.app/)
+2. **Surge Live Link:** [Click Here](https://boi-bazaar.surge.sh/)
 ## Screenshot:
 
 ![Boi-Bazaar Screenshot](https://i.ibb.co/0B7QHsW/screencapture-boi-bazaar-netlify-app-2024-03-28-15-06-59.png)
 
 
-## Visit Boi-Bazaar:
-1. **Netlify:** [Click Here](https://boi-bazaar.netlify.app/)
-2. **Surge:** [Click Here](https://boi-bazaar.surge.sh/)
+
 
 Happy Reading! 📚
