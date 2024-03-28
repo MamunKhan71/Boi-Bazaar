@@ -32,8 +32,13 @@ Boi-Bazaar is an online marketplace for book enthusiasts, offering a seamless br
 - JavaScript
 - React
 
+## Screenshot:
+
+![Boi-Bazaar Screenshot](https://i.ibb.co/0B7QHsW/screencapture-boi-bazaar-netlify-app-2024-03-28-15-06-59.png)
+
+
 ## Visit Boi-Bazaar:
 1. **Netlify:** [Click Here](https://boi-bazaar.netlify.app/)
-2. **Surge:** [Click Here](https://boi-bazaar.netlify.app/)
+2. **Surge:** [Click Here](https://boi-bazaar.surge.sh/)
 
 Happy Reading! 📚
