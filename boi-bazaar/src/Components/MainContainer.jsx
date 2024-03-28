@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const MainContainer = () => {
     return (
-        <div className="container mx-auto mb-24">
+        <div className="container mx-auto mb-24 px-4">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <ToastContainer
