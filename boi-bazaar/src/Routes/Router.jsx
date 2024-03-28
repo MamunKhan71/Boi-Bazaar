@@ -11,6 +11,7 @@ import ErrorPage from "../Pages/ErrorPage.jsx";
 import SignIn from "../Pages/SignIn.jsx";
 import SignUp from "../Pages/SignUp.jsx";
 import Faq from "../Pages/Faq.jsx";
+import ContactUs from "../Pages/ContactUs.jsx";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
                 path: '/faq',
                 loader: ()=> fetch('/faq.json'),
                 element: <Faq></Faq>
+            },
+            {
+                path: '/contact-us',
+                element: <ContactUs/>
             }
         ]
     },

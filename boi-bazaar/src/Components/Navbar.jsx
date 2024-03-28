@@ -14,6 +14,9 @@ const Navbar = () => {
     <NavLink className={({ isActive }) =>
         isActive ? "btn text-base lg:text-lg  bg-transparent border-[#23BE0A] text-[#23BE0A] font-bold" : "btn bg-transparent shadow-none border-none hover:bg-[#23BE0A] text-lg "
     } to="/faq">FAQ</NavLink>
+        <NavLink className={({ isActive }) =>
+        isActive ? "btn text-base lg:text-lg  bg-transparent border-[#23BE0A] text-[#23BE0A] font-bold" : "btn bg-transparent shadow-none border-none hover:bg-[#23BE0A] text-lg "
+    } to="/contact-us">Contact us</NavLink>
     </>
     return (
         <div className="navbar bg-base-100 workSans my-4 lg:my-8">
@@ -28,7 +31,7 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0}
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <div className="flex flex-col lg:flex-row gap-4">
+                        <div className="flex flex-col lg:flex-row gap-2">
                             {
                                 NavLinks
                             }
@@ -45,7 +48,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <div className="flex flex-col lg:flex-row gap-4">
+                    <div className="flex flex-col lg:flex-row gap-2">
                         {
                             NavLinks
                         }
