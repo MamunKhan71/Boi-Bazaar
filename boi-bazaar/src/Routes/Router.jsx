@@ -8,6 +8,8 @@ import BookDetails from "../Components/Books/BookDetails.jsx";
 // import ReadBooks from "../Components/Books/ReadBooks.jsx";
 // import WishList from "../Components/Books/WishList.jsx";
 import ErrorPage from "../Pages/ErrorPage.jsx";
+import SignIn from "../Pages/SignIn.jsx";
+import SignUp from "../Pages/SignUp.jsx";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -44,6 +46,14 @@ export const router = createBrowserRouter([
                 path: "/books/:id",
                 loader: () => fetch('/book_data.json'),
                 element: <BookDetails></BookDetails>,
+            },
+            {
+                path: '/sign-in',
+                element: <SignIn/>
+            },
+            {
+                path: '/sign-up',
+                element: <SignUp/>
             }
         ]
     },
