@@ -1,9 +1,9 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import {useState, useEffect} from "react";
 import {useLoaderData} from "react-router-dom";
+import {toast} from "react-toastify";
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
-
 
 const data = [];
 
@@ -22,26 +22,33 @@ const TriangleBar = (props) => {
 
 const PagesToRead = () => {
     const loaderData = useLoaderData();
-    const localBooks = JSON.parse(localStorage.getItem('read'))
     const [getWidth, setWidth] = useState(0);
     const [commonBooks, setCommonBooks] = useState([]);
-    useEffect(() => {
-        const commonBooks = loaderData.filter(book => localBooks.includes(book.bookId))
-        setCommonBooks(commonBooks)
-    }, []);
-
     const data = []
-    commonBooks.map(book => {
-        const newBook = {
-            name: book.bookName,
-            Pages: book.totalPages,
-            pv: 2400,
-            amt: 2400,
-        }
-        data.push(newBook)
-    })
+    try{
 
+        const localBooks = JSON.parse(localStorage.getItem('read'))
+        useEffect(() => {
+            if(localBooks){
+                const commonBooks = loaderData.filter(book => localBooks.includes(book.bookId))
+                setCommonBooks(commonBooks)
+            }else{
+                setCommonBooks([])
+            }
+        }, []);
 
+        commonBooks.map(book => {
+            const newBook = {
+                name: book.bookName,
+                Pages: book.totalPages,
+                pv: 2400,
+                amt: 2400,
+            }
+            data.push(newBook)
+        })
+    }catch (e){
+        toast("No Book Found in the reading list!")
+    }
 
     useEffect(() => {
         const container = document.getElementsByClassName('container');
