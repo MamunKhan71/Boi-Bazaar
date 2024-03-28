@@ -6,7 +6,7 @@ const Faq = () => {
         <div className="space-y-4 border border-dashed p-4 lg:p-6 rounded-xl workSans">
             <div>
                 <div
-                    className="w-full bg-primaryColor text-white py-8 text-center rounded-2xl text-xl lg:text-2xl font-bold workSans">
+                    className="w-full bg-primaryColor text-white py-8 text-center rounded-2xl text-lg lg:text-2xl font-bold workSans">
                     <h1>Frequently Asked Questions</h1>
                 </div>
             </div>

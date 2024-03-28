@@ -80,7 +80,7 @@ const ListedBooks = () => {
                     </div>
                 </div>
                 <div className="flex justify-center py-8">
-                    <details className="dropdown">
+                    <details className="dropdown relative">
                         <summary className="m-1 btn bg-primaryColor font-semibold text-white text-lg px-5">Sort By
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                  viewBox="0 0 24 24" fill="none">
@@ -88,7 +88,7 @@ const ListedBooks = () => {
                                       strokeLinecap="round"
                                       strokeLinejoin="round"/>
                             </svg></summary>
-                        <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                        <ul className="absolute left-1/2 flex items-center justify-center -translate-x-1/2 p-2 shadow menu dropdown-content z-[1] bg-gray-100 rounded-box w-52">
                             <li><a onClick={()=> handleFilter('rating')} className="text-lg font-semibold">Rating</a></li>
                             <li><a onClick={()=> handleFilter('pages')} className="text-lg font-semibold">Number of pages</a></li>
                             <li><a onClick={()=> handleFilter('year')} className="text-lg font-semibold">Published year</a></li>
