@@ -11,6 +11,9 @@ const Navbar = () => {
     <NavLink className={({ isActive }) =>
         isActive ? "text-base lg:text-lg btn bg-transparent border-[#23BE0A] text-[#23BE0A] font-bold" : "btn bg-transparent shadow-none border-none hover:bg-[#23BE0A] text-lg "
     } to="/pages-to-read">Pages to Read</NavLink>
+    <NavLink className={({ isActive }) =>
+        isActive ? "btn text-base lg:text-lg  bg-transparent border-[#23BE0A] text-[#23BE0A] font-bold" : "btn bg-transparent shadow-none border-none hover:bg-[#23BE0A] text-lg "
+    } to="/faq">FAQ</NavLink>
     </>
     return (
         <div className="navbar bg-base-100 workSans my-4 lg:my-8">

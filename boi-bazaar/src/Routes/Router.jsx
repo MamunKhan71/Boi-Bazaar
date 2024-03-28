@@ -10,6 +10,7 @@ import BookDetails from "../Components/Books/BookDetails.jsx";
 import ErrorPage from "../Pages/ErrorPage.jsx";
 import SignIn from "../Pages/SignIn.jsx";
 import SignUp from "../Pages/SignUp.jsx";
+import Faq from "../Pages/Faq.jsx";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -54,6 +55,11 @@ export const router = createBrowserRouter([
             {
                 path: '/sign-up',
                 element: <SignUp/>
+            },
+            {
+                path: '/faq',
+                loader: ()=> fetch('/faq.json'),
+                element: <Faq></Faq>
             }
         ]
     },
