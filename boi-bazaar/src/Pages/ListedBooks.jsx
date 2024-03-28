@@ -13,7 +13,6 @@ const ListedBooks = () => {
     const [filteredWishedBooks, setFilteredWishBooks] = useState([])
     useEffect(() => {
         setFilteredWishBooks(getBooks.filter(book => getWishBooks.includes(book.bookId) && !getReadBooks.includes(book.bookId)))
-
     }, [getWishBooks]);
     useEffect(() => {
         setFilteredReadBooks(getBooks.filter(book => getReadBooks.includes(book.bookId)))
@@ -43,6 +42,7 @@ const ListedBooks = () => {
                 const WishingList = JSON.parse(localWish)
                 setWishBooks(WishingList)
             }else{
+                localStorage.setItem('wishlist',[])
                 setWishBooks([])
             }
         }catch (e) {
@@ -69,7 +69,7 @@ const ListedBooks = () => {
             }
         }
     }
-    console.log(filteredReadBooks)
+
     return (
         <>
             <div className="space-y-6">
