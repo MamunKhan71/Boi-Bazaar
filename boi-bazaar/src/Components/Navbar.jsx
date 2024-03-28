@@ -44,7 +44,7 @@ const Navbar = () => {
                         </div>
                     </ul>
                 </div>
-                <Link to="/" className="text-2xl lg:text-3xl font-bold">Boi<span className="bg-300% text-2xl lg:text-3xl font-bold bg-gradient-to-r from-black via-green-500 to-green-950 text-transparent bg-clip-text animate-gradient">Bazaar</span></Link>
+                <Link to="/" className="text-2xl lg:text-3xl font-bold flex gap-2"><img className="w-8" src="/images/favicon.png" />Boi<span className="bg-300% text-2xl lg:text-3xl font-bold bg-gradient-to-r from-black via-green-500 to-green-950 text-transparent bg-clip-text animate-gradient">Bazaar</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
