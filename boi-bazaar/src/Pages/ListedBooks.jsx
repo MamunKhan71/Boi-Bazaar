@@ -13,6 +13,7 @@ const ListedBooks = () => {
     const [filteredWishedBooks, setFilteredWishBooks] = useState([])
     useEffect(() => {
         setFilteredWishBooks(getBooks.filter(book => getWishBooks.includes(book.bookId) && !getReadBooks.includes(book.bookId)))
+
     }, [getWishBooks]);
     useEffect(() => {
         setFilteredReadBooks(getBooks.filter(book => getReadBooks.includes(book.bookId)))
