@@ -21,26 +21,40 @@ const BookDetails = () => {
         }
     }
     const handleLocalWishlists = (book) => {
-        if(localStorage.getItem('read')){
-            if (JSON.parse(localStorage.getItem('read')).includes(book)){
-                toast.error("Book already done reading!")
-            }else{
-                if(localStorage.getItem('wishlist')){
-                    const items = localStorage.getItem('wishlist')
-                    const newItems = JSON.parse(items)
-                    if(newItems.includes(book)){
-                        toast.error("Already in wish list!")
-                    }else{
-                        localStorage.setItem('wishlist', JSON.stringify([...newItems, book]))
-                        toast.success("Added to wish list!")
+        if (localStorage.getItem('read')) {
+            const readBooks = JSON.parse(localStorage.getItem('read'));
+            if (readBooks.includes(book)) {
+                toast.error("Book already done reading!");
+            } else {
+                if (localStorage.getItem('wishlist')) {
+                    const wishList = JSON.parse(localStorage.getItem('wishlist'));
+                    if (wishList.includes(book)) {
+                        toast.error("Already in wish list!");
+                    } else {
+                        localStorage.setItem('wishlist', JSON.stringify([...wishList, book]));
+                        toast.success("Added to wish list!");
                     }
+                } else {
+                    localStorage.setItem('wishlist', JSON.stringify([book]));
+                    toast.success("Added to wish list!");
                 }
             }
-        }else{
-            localStorage.setItem('wishlist', JSON.stringify([book]))
+        } else {
+            if (localStorage.getItem('wishlist')) {
+                const wishList = JSON.parse(localStorage.getItem('wishlist'));
+                if (wishList.includes(book)) {
+                    toast.error("Already in wish list!");
+                } else {
+                    localStorage.setItem('wishlist', JSON.stringify([...wishList, book]));
+                    toast.success("Added to wish list!");
+                }
+            } else {
+                localStorage.setItem('wishlist', JSON.stringify([book]));
+                toast.success("Added to wish list!");
+            }
         }
-
     }
+
     const id = useParams().id;
     const books = useLoaderData();
     const {
